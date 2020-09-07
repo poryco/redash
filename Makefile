@@ -55,12 +55,3 @@ redis-cli:
 
 bash:
 	docker-compose run --rm server bash
-
-# Production Targets
-up-prod:
-	docker-compose -f setup/docker-compose.prod.yaml up -d
-
-stop-prod:
-	docker-compose -f setup/docker-compose.prod.yaml stop
-
-restart-prod:	stop-prod up-prod
