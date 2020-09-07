@@ -15,6 +15,7 @@ services:
   server:
     <<: *redash-service
     command: server
+    container_name: builder.server
     ports:
       - "5000:5000"
     environment:
@@ -23,6 +24,7 @@ services:
   scheduler:
     <<: *redash-service
     command: scheduler
+    container_name: builder.scheduler
     environment:
       QUEUES: "celery"
       WORKERS_COUNT: 1
@@ -30,6 +32,7 @@ services:
   scheduled_worker:
     <<: *redash-service
     command: worker
+    container_name: builder.worker
     environment:
       QUEUES: "scheduled_queries,schemas"
       WORKERS_COUNT: 1
@@ -37,10 +40,12 @@ services:
   adhoc_worker:
     <<: *redash-service
     command: worker
+    container_name: builder.adhoc_worker
     environment:
       QUEUES: "queries"
       WORKERS_COUNT: 2
   
   redis:
     image: redis:5.0-alpine
-    restart: always
+    container_name: builder.redis
+    restart: unless-stopped
