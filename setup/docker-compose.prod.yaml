@@ -26,8 +26,8 @@ services:
     command: scheduler
     container_name: builder.scheduler
     environment:
-      QUEUES: "celery"
-      WORKERS_COUNT: 1
+      QUEUES: "celery,emails,default"
+      WORKERS_COUNT: 2
   
   scheduled_worker:
     <<: *redash-service
