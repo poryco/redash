@@ -163,7 +163,7 @@ function Home() {
         {includes(messages, "using-deprecated-embed-feature") && <DeprecatedEmbedFeatureAlert />}
         {includes(messages, "email-not-verified") && <EmailNotVerifiedAlert />}
         <EmptyState
-          header="Welcome to Redash 👋"
+          header="Welcome to Fidap 👋"
           description="Connect to any data source, easily visualize and share your data"
           illustration="dashboard"
           helpLink="https://redash.io/help/user-guide/getting-started"
@@ -183,7 +183,7 @@ routes.register(
   "Home",
   routeWithUserSession({
     path: "/",
-    title: "Redash",
+    title: "Fidap",
     render: pageProps => <Home {...pageProps} />,
   })
 );

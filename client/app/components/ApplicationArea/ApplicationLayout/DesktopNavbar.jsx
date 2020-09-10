@@ -48,7 +48,7 @@ export default function DesktopNavbar() {
       <NavbarSection inlineCollapsed={collapsed} className="desktop-navbar-logo">
         <div>
           <Link href="./">
-            <img src={logoUrl} alt="Redash" />
+            <img src={logoUrl} alt="Fidap" />
           </Link>
         </div>
       </NavbarSection>
