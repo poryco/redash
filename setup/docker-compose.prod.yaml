@@ -3,6 +3,8 @@ version: "2"
 x-redash-service: &redash-service
   build:
     context: ../
+    args:
+      skip_frontend_build: "true"
   volumes:
     - ../:/app
   depends_on:
