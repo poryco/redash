@@ -34,8 +34,6 @@
   }
 
   .ant-menu {
-    background-color: @backgroundColor;
-
     &:not(.ant-menu-inline-collapsed) {
       width: 170px;
     }
@@ -45,6 +43,10 @@
       display: inline-block;
       max-width: 0;
       opacity: 0;
+    }
+
+    &.ant-menu-dark {
+      background-color: @backgroundColor;
     }
 
     .ant-menu-item-divider {
@@ -138,9 +140,15 @@
 }
 
 .desktop-navbar-submenu {
-  .ant-menu {
-    background: @backgroundColor;
+  &.ant-menu {
+    &.ant-menu-dark {
+      .ant-menu-sub {
+        background: @backgroundColor;
+      }
+    }
+  }
 
+  .ant-menu {
     .ant-menu-item-divider {
       background: @dividerColor;
     }
