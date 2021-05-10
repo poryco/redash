@@ -22,6 +22,8 @@ services:
       - "5000:5000"
     environment:
       REDASH_WEB_WORKERS: 4
+    networks:
+      - fidap_builder_db_net
   
   scheduler:
     <<: *redash-service
@@ -30,6 +32,8 @@ services:
     environment:
       QUEUES: "celery"
       WORKERS_COUNT: 1
+    networks:
+      - fidap_builder_db_net
 
   general_worker:
     <<: *redash-service
@@ -38,6 +42,8 @@ services:
     environment:
       QUEUES: "emails,default"
       WORKERS_COUNT: 1
+    networks:
+      - fidap_builder_db_net
   
   scheduled_worker:
     <<: *redash-service
@@ -46,6 +52,8 @@ services:
     environment:
       QUEUES: "scheduled_queries,schemas"
       WORKERS_COUNT: 1
+    networks:
+      - fidap_builder_db_net
   
   adhoc_worker:
     <<: *redash-service
@@ -54,8 +62,28 @@ services:
     environment:
       QUEUES: "queries"
       WORKERS_COUNT: 2
+    networks:
+      - fidap_builder_db_net
   
   redis:
     image: redis:5.0-alpine
     container_name: builder.redis
     restart: unless-stopped
+    networks:
+      - fidap_builder_db_net
+
+  db:
+    image: postgres:12
+    restart: unless-stopped
+    container_name: fidap-builder.db
+    ports:
+      - 5442:5432
+    environment:
+      POSTGRES_USER: fidapbuilder
+      POSTGRES_PASSWORD: EJUuCtLDXd73gpvb
+      POSTGRES_DB: builder_db
+    networks:
+      - fidap_builder_db_net
+
+networks:
+  fidap_builder_db_net:

@@ -2,7 +2,7 @@ google-api-python-client==1.7.11
 gspread==3.1.0
 impyla==0.16.0
 influxdb==5.2.3
-mysqlclient==1.3.14
+mysqlclient
 oauth2client==4.1.3
 pyhive==0.6.1
 pymongo[tls,srv]==3.9.0
@@ -17,8 +17,8 @@ sasl>=0.1.3
 thrift>=0.8.0
 thrift_sasl>=0.1.0
 cassandra-driver==3.21.0
-memsql==3.0.0
-atsd_client==3.0.5
+memsql
+atsd_client
 simple_salesforce==0.74.3
 PyAthena>=1.5.0
 pymapd==0.19.0
@@ -31,7 +31,8 @@ phoenixdb==0.7
 # certifi is needed to support MongoDB and SSL:
 certifi>=2019.9.11
 pydgraph==2.0.2
-azure-kusto-data==0.0.35
+azure-kusto-data
 pyexasol==0.12.0
 python-rapidjson==0.8.0
 pyodbc==4.0.28
+python-dateutil
